@@ -8,7 +8,8 @@ function App() {
     <>
       <GlobalStyle />
       <ImageCarousel />
-      <div>
+
+      {/* <div>
         <p>
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
           mollitia, molestiae quas vel sint commodi repudiandae consequuntur
@@ -32,9 +33,9 @@ function App() {
           Voluptatem quaerat non architecto ab laudantium modi minima sunt esse
           temporibus sint culpa, recusandae aliquam numquam totam ratione
           voluptas quod exercitationem fuga. Possimus quis earum veniam quasi
-          aliquam eligendi, placeat qui corporis}
+          aliquam eligendi, placeat qui corporis
         </p>
-      </div>
+      </div> */}
     </>
   );
 }
@@ -48,6 +49,7 @@ body{
   font-family: "Open Sans";
   font-size: 62.5%;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 `;
 
