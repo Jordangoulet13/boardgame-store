@@ -1,14 +1,18 @@
 import "./App.css";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import theme from "./theme/theme";
 
 import ImageCarousel from "./components/ImageCarousel/ImageCarousel.jsx";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <ImageCarousel />
-
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <ImageCarousel />
+        <Header />
+      </ThemeProvider>
       {/* <div>
         <p>
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
@@ -41,13 +45,16 @@ function App() {
 }
 
 const GlobalStyle = createGlobalStyle`
+html{
+ font-size: 62.5%;
+}
+
 body{
   background:white;
   min-height:100vh;
   margin:0;
   color:black;
   font-family: "Open Sans";
-  font-size: 62.5%;
   box-sizing: border-box;
   overflow-x: hidden;
 }
