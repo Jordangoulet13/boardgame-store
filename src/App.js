@@ -2,16 +2,14 @@ import "./App.css";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
 
-import ImageCarousel from "./components/ImageCarousel/ImageCarousel.jsx";
-import Header from "./components/Header";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <ImageCarousel />
-        <Header />
+        <Home />
       </ThemeProvider>
       {/* <div>
         <p>
@@ -50,7 +48,7 @@ html{
 }
 
 body{
-  background:white;
+  background-color:${(p) => p.theme.backgroundColorDefault};
   min-height:100vh;
   margin:0;
   color:black;
