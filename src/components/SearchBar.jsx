@@ -42,4 +42,5 @@ const StyledInput = styled.input`
 
 const Container = styled.div`
   display: flex;
+  margin-bottom: 5rem;
 `;

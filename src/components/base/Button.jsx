@@ -18,6 +18,10 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${(p) => p.theme.buttonPrimary};
+  &:hover {
+    cursor: pointer;
+    background-color: ${(p) => p.theme.buttonSecondary};
+  }
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`

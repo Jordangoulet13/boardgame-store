@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ImageCarousel from "../components/ImageCarousel/ImageCarousel.jsx";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
+import Categories from "../components/Categories/Categories";
 const Home = () => {
   const placeholder = "Search by product name, brand, category...";
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Header />
       <Container>
         <SearchBar placeholder={placeholder} />
+        <Categories />
       </Container>
     </>
   );

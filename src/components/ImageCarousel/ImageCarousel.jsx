@@ -51,28 +51,28 @@ const ImageCarousel = (props) => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src={vancouver} />
+          <img src={vancouver} alt="" />
           <div className="slideContainer">
             <h1>Vancouver and New West stores are open!</h1>
             <div className="slideButton">{"LET'S GO >>"}</div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={shippingLocally} />
+          <img src={shippingLocally} alt="" />
           <div className="slideContainer">
             <h1>Now Shipping Across Canada</h1>
             <div className="slideButton">{"OR PICK UP IN-STORE >>"}</div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={locallySourced} />
+          <img src={locallySourced} alt="" />
           <div className="slideContainer">
             <h1>Locally sourced, artisanal family fun</h1>
             <div className="slideButton">{"MADE IN VANCOUVER >>"}</div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={earnPoints} />
+          <img src={earnPoints} alt="" />
           <div className="slideContainer">
             <h1>Earn points, get goodies</h1>
             <div className="slideButton">{"GOODIES ARE THE BEST >>"}</div>
