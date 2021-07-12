@@ -3,6 +3,7 @@ import ImageCarousel from "../components/ImageCarousel/ImageCarousel.jsx";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import Categories from "../components/Categories/Categories";
+import ContactAbout from "../components/Contact_About/ContactAbout";
 const Home = () => {
   const placeholder = "Search by product name, brand, category...";
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Container>
         <SearchBar placeholder={placeholder} />
         <Categories />
+        <ContactAbout />
       </Container>
     </>
   );

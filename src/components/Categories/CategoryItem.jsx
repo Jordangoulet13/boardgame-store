@@ -1,9 +1,9 @@
 import styled from "styled-components";
-const CategoryItem = (props) => {
+const CategoryItem = ({ image, title, ...props }) => {
   return (
     <Container>
-      <img src={props.image} alt="" />
-      <h1>{props.title}</h1>
+      <img src={image} alt="" />
+      {title ? <h1>{title}</h1> : null}
     </Container>
   );
 };
@@ -21,13 +21,12 @@ const Container = styled.div`
     &:hover {
       transform: scale(1.1);
     }
-    transition: transform 0.5s;
+    transition: transform 0.7s;
   }
   h1 {
     position: absolute;
-
     width: auto;
-    background: ${(p) => p.theme.textBackgroundColor};
+    background-color: ${(p) => p.theme.secondaryBackgroundColor};
     box-shadow: 5px 1px 10px -2px rgb(0 0 0 / 40%);
     bottom: 20px;
     left: 0px;
@@ -40,7 +39,7 @@ const Container = styled.div`
     font-weight: 500;
     z-index: 1;
     padding: 5px 20px;
-    font-family: sans-serif;
+    font-family: ${(p) => p.theme.primaryfontFamily};
     text-align: center;
   }
 `;

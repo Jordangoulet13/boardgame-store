@@ -29,6 +29,7 @@ const Container = styled.div`
   left: 5rem;
   z-index: 999;
   display: flex;
+  height: 8rem;
 `;
 
 const Logo = styled.div`
@@ -36,5 +37,5 @@ const Logo = styled.div`
   background-position: center;
   background-size: cover;
   width: 20rem;
-  height: 8rem;
+  height: 100%;
 `;

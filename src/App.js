@@ -43,6 +43,9 @@ function App() {
 }
 
 const GlobalStyle = createGlobalStyle`
+*{
+  box-sizing: border-box;
+}
 html{
  font-size: 62.5%;
 }
