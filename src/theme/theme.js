@@ -3,9 +3,9 @@ const theme = {
   buttonSecondary: "#6c757d",
   backgroundColorDefault: "#f8f9fa",
   secondaryBackgroundColor: "#4dc3c5",
-  primaryfontFamily: "Roboto",
+  primaryfontFamily: "Roboto Slab",
   secondaryfontFamily: "sans-serif",
-  tertiaryfontFamily: "Roboto Slab",
+  tertiaryfontFamily: "Roboto",
 };
 
 export default theme;

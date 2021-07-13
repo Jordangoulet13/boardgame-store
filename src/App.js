@@ -55,7 +55,7 @@ body{
   min-height:100vh;
   margin:0;
   color:black;
-  font-family: "Open Sans";
+  font-family: ${(p) => p.theme.primaryfontFamily};
   box-sizing: border-box;
   overflow-x: hidden;
 }

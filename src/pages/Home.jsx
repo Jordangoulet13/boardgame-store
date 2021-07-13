@@ -4,6 +4,8 @@ import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import Categories from "../components/Categories/Categories";
 import ContactAbout from "../components/Contact_About/ContactAbout";
+import BlogSection from "../components/Blog/BlogSection";
+
 const Home = () => {
   const placeholder = "Search by product name, brand, category...";
   return (
@@ -14,6 +16,7 @@ const Home = () => {
         <SearchBar placeholder={placeholder} />
         <Categories />
         <ContactAbout />
+        <BlogSection />
       </Container>
     </>
   );

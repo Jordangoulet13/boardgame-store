@@ -57,7 +57,7 @@ export default ContactAbout;
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30rem 30rem;
+  grid-template-rows: 33rem 33rem;
   grid-gap: 3rem;
   margin-bottom: 5rem;
 
@@ -82,13 +82,11 @@ const Info = styled.div`
   height: 100%;
 
   h1 {
-    font-family: ${(p) => p.theme.tertiaryfontFamily};
     font-size: 2.5rem;
     margin: 0;
   }
   p {
     font-size: 1.5rem;
-    font-family: ${(p) => p.theme.primaryfontFamily};
   }
 `;
 

@@ -38,4 +38,5 @@ const Logo = styled.div`
   background-size: cover;
   width: 20rem;
   height: 100%;
+  cursor: pointer;
 `;

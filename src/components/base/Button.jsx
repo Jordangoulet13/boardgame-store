@@ -52,7 +52,7 @@ const Container = styled.div`
   align-items: center;
   background-color: ${(p) => p.theme.buttonPrimary};
   span {
-    font-family: ${(p) => p.theme.primaryfontFamily};
+    font-family: ${(p) => p.theme.secondaryfontFamily};
     font-weight: 300;
   }
   &:hover {
