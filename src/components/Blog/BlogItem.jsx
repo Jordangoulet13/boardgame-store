@@ -39,7 +39,8 @@ const Container = styled.div`
     font-size: 2rem;
   }
   p {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    font-family: ${(p) => p.theme.tertiaryfontFamily};
   }
 `;
 

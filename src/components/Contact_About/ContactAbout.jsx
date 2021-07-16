@@ -86,7 +86,8 @@ const Info = styled.div`
     margin: 0;
   }
   p {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    font-family: ${(p) => p.theme.tertiaryfontFamily};
   }
 `;
 
@@ -94,6 +95,7 @@ const StyledButton = styled(Button)`
   position: absolute;
   left: 0px;
   bottom: 0px;
+  width: 22rem;
 `;
 
 const CategoriesContainer = styled.div`

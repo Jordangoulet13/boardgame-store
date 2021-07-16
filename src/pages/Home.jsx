@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar";
 import Categories from "../components/Categories/Categories";
 import ContactAbout from "../components/Contact_About/ContactAbout";
 import BlogSection from "../components/Blog/BlogSection";
+import Footer from "../components/Footer/Footer";
 
 const Home = () => {
   const placeholder = "Search by product name, brand, category...";
@@ -17,6 +18,7 @@ const Home = () => {
         <Categories />
         <ContactAbout />
         <BlogSection />
+        <Footer />
       </Container>
     </>
   );
@@ -26,5 +28,5 @@ export default Home;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 5rem 7rem;
+  margin: 5rem 10rem;
 `;
