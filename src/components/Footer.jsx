@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ListItem from "../../components/base/ListItem";
+import ListItem from "./base/ListItem";
 // import { FaCcMastercard } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

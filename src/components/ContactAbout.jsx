@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import CategoryItem from "../Categories/CategoryItem";
-import Button from "../base/Button";
-import map from "../../assets/map.jpg";
-import storeImg from "../../assets/store2.jpg";
-import events from "../../assets/Categories/events.jpg";
-import giftCards from "../../assets/Categories/giftcards.png";
-import shipping from "../../assets/Categories/shipping.png";
+import CategoryItem from "./Categories/CategoryItem";
+import Button from "./base/Button";
+import map from "../assets/map.jpg";
+import storeImg from "../assets/store2.jpg";
+import events from "../assets/Categories/events.jpg";
+import giftCards from "../assets/Categories/giftcards.png";
+import shipping from "../assets/Categories/shipping.png";
 
 const ContactAbout = (props) => {
   return (
@@ -57,7 +57,7 @@ export default ContactAbout;
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 33rem 33rem;
+  grid-template-rows: 35rem 35rem;
   grid-gap: 3rem;
   margin-bottom: 5rem;
 

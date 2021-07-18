@@ -1,6 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Button from "./base/Button";
-import { Link } from "react-router-dom";
 import {
   faBars,
   faShoppingBasket,
@@ -8,11 +7,24 @@ import {
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/img-logo.png";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 5);
+      console.log("scrolled");
+    });
+  }, []);
+
   return (
-    <Container>
-      <Logo />
+    <Container scrolled={scroll}>
+      <Link to="/">
+        <Logo />
+      </Link>
       <Button icon={faBars} />
       <Button icon={faShoppingBasket} />
       <Button icon={faSearch} />
@@ -30,6 +42,21 @@ const Container = styled.div`
   z-index: 999;
   display: flex;
   height: 8rem;
+  background-color: ${(p) => p.theme.buttonPrimary};
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  ${(p) =>
+    p.scrolled
+      ? css`
+          top: 0;
+          left: 0;
+          width: 100%;
+          position: fixed;
+        `
+      : css`
+          top: 5rem;
+          left: 5rem;
+        `}
 `;
 
 const Logo = styled.div`

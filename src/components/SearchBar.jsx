@@ -10,12 +10,14 @@ const SearchBar = (props) => {
     setSearchText(event.target.value);
   };
 
+  const placeholder = "Search by product name, brand, category...";
+
   return (
     <Container>
       <StyledInput
         value={searchText}
         onChange={onInputChange}
-        placeholder={props.placeholder}
+        placeholder={placeholder}
       />
       <Button icon={faSearch} />
     </Container>

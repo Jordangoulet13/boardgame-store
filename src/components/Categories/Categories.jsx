@@ -33,7 +33,7 @@ const Categories = (props) => {
           <CategoryItem image={preorders} title={Titles.preorders} />
         </div>
         <div>
-          <CategoryItem image={jigsaw} title={Titles.jigsaw} />
+          <CategoryItem image={jigsaw} title={Titles.jigsaw} linkUrl="jigsaw" />
           <CategoryItem image={boardGames} title={Titles.boardGames} />
         </div>
         <div>

@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import ImageCarousel from "../components/ImageCarousel/ImageCarousel.jsx";
 import Header from "../components/Header";
+import Container from "../components/base/Container";
 import SearchBar from "../components/SearchBar";
 import Categories from "../components/Categories/Categories";
-import ContactAbout from "../components/Contact_About/ContactAbout";
+import ContactAbout from "../components/ContactAbout";
 import BlogSection from "../components/Blog/BlogSection";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const placeholder = "Search by product name, brand, category...";
@@ -24,9 +25,3 @@ const Home = () => {
   );
 };
 export default Home;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 5rem 10rem;
-`;

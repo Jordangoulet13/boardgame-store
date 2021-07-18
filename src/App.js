@@ -1,15 +1,20 @@
 import "./App.css";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import Home from "./pages/Home";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Home />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/:category" component={ProductPage} />
+        </Switch>
       </ThemeProvider>
       {/* <div>
         <p>
