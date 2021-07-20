@@ -16,7 +16,6 @@ const Header = (props) => {
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 5);
-      console.log("scrolled");
     });
   }, []);
 

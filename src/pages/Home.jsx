@@ -9,13 +9,12 @@ import BlogSection from "../components/Blog/BlogSection";
 import Footer from "../components/Footer";
 
 const Home = () => {
-  const placeholder = "Search by product name, brand, category...";
   return (
     <>
       <ImageCarousel />
       <Header />
       <Container>
-        <SearchBar placeholder={placeholder} />
+        <SearchBar />
         <Categories />
         <ContactAbout />
         <BlogSection />

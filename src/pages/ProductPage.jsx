@@ -1,14 +1,42 @@
 import styled from "styled-components";
 import { useParams, withRouter } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import db from "../firebase/firebase.utils";
+import { setItems } from "../redux/features/itemSlice";
 
 import Header from "../components/Header";
 import Container from "../components/base/Container";
 import SearchBar from "../components/SearchBar";
 import CategoryItem from "../components/Categories/CategoryItem";
+import SortBar from "../components/SortBar";
+import ItemsCollection from "../components/ItemsCollection";
+
 import Footer from "../components/Footer";
 
-const ProductPage = ({ match, location, history, ...props }) => {
+const ProductPage = ({ ...props }) => {
+  const dispatch = useDispatch();
+  let items = [];
   let { category } = useParams();
+  let key = category.toLowerCase().replace(/\s/g, "");
+
+  useEffect(() => {
+    db.collection("Inventory").onSnapshot((snapshot) => {
+      snapshot.docs.map((doc) => {
+        console.log(category.toLowerCase());
+        if (doc.data().category === key) {
+          items = [...items, { id: doc.id, ...doc.data() }];
+        }
+      });
+
+      dispatch(
+        setItems({
+          [key]: items,
+        })
+      );
+    });
+  }, []);
+
   return (
     <>
       <Header />
@@ -17,6 +45,13 @@ const ProductPage = ({ match, location, history, ...props }) => {
       </Title>
       <Container product>
         <SearchBar />
+        <SubContainer>
+          <SortBar />
+          <ItemsCollection category={key} />
+        </SubContainer>
+      </Container>
+      <Container>
+        <Footer />
       </Container>
     </>
   );
@@ -41,4 +76,7 @@ const Title = styled.div`
   span {
     margin: 1rem;
   }
+`;
+const SubContainer = styled.div`
+  display: flex;
 `;
