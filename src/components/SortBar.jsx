@@ -5,33 +5,34 @@ import PriceSlider from "./PriceSlider";
 const options = [
   {
     label: "Default",
-    value: "red",
+    action: "sortByNameAsc",
   },
   {
     label: "Popularity",
-    value: "green",
+    action: "sortByPop",
   },
   {
     label: "Newest products",
-    value: "blue",
+    action: "sortByDate",
   },
   {
     label: "Lowest products",
-    value: "blue",
+    action: "sortByLowest",
   },
   {
     label: "Highest products",
-    value: "blue",
+    action: "sortByHighest",
   },
   {
     label: "Name ascending",
-    value: "blue",
+    action: "sortByNameAsc",
   },
   {
     label: "Name descending",
-    value: "blue",
+    action: "sortByNameDesc",
   },
 ];
+
 const brands = [{ label: "All brands" }];
 
 const SortBar = () => {

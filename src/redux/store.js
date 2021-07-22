@@ -5,4 +5,8 @@ export default configureStore({
   reducer: {
     item: itemReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });

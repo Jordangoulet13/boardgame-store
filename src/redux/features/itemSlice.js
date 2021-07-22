@@ -1,10 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  //categories
-  boardgames: null,
-  gundams: null,
-  jigsawpuzzles: null,
+  collections: null,
 };
 
 const itemSlice = createSlice({
@@ -12,36 +9,51 @@ const itemSlice = createSlice({
   initialState,
   reducers: {
     setItems: (state, action) => {
-      state.boardgames = action.payload.boardgames;
-      state.gundams = action.payload.gundams;
-      state.jigsawpuzzles = action.payload.jigsawpuzzles;
+      state.collections = action.payload.collections;
+    },
+    sortByDate: (state) => {
+      state.collections = state.collections
+        .slice()
+        .sort((a, b) => (a.date > b.date ? 1 : b.date > a.date ? -1 : 0));
+    },
+    sortByLowest: (state) => {
+      state.collections = state.collections
+        .slice()
+        .sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+    },
+    sortByHighest: (state) => {
+      state.collections = state.collections
+        .slice()
+        .sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+    },
+    sortByNameAsc: (state) => {
+      state.collections = state.collections
+        .slice()
+        .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
+    },
+    sortByNameDesc: (state) => {
+      state.collections = state.collections
+        .slice()
+        .sort((a, b) => (b.name > a.name ? 1 : a.name > b.name ? -1 : 0));
+    },
+    sortByPop: (state) => {
+      state.collections = state.collections
+        .slice()
+        .sort((a, b) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
     },
   },
 });
 
-export const { setItems } = itemSlice.actions;
+export const {
+  setItems,
+  sortByDate,
+  sortByLowest,
+  sortByHighest,
+  sortByNameAsc,
+  sortByNameDesc,
+  sortByPop,
+} = itemSlice.actions;
 
-export const getSelector = (key) => {
-  const selectBoardGames = (state) => state.item.boardgames;
-  const selectGundams = (state) => state.item.gundams;
-  const selectJigsawPuzzles = (state) => state.item.jigsawpuzzles;
-  let selectedSelector = selectBoardGames;
-  switch (key) {
-    case "boardgames":
-      selectedSelector = selectBoardGames;
-      break;
-
-    case "gundams":
-      selectedSelector = selectGundams;
-      break;
-
-    case "jigsawpuzzles":
-      selectedSelector = selectJigsawPuzzles;
-      break;
-
-    default:
-  }
-  return selectedSelector;
-};
+export const selectCollections = (state) => state.item.collections;
 
 export default itemSlice.reducer;

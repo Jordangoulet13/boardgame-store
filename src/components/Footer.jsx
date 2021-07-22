@@ -90,7 +90,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
 
   grid-gap: 3rem;
   div {

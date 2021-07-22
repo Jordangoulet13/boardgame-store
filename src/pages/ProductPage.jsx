@@ -8,7 +8,6 @@ import { setItems } from "../redux/features/itemSlice";
 import Header from "../components/Header";
 import Container from "../components/base/Container";
 import SearchBar from "../components/SearchBar";
-import CategoryItem from "../components/Categories/CategoryItem";
 import SortBar from "../components/SortBar";
 import ItemsCollection from "../components/ItemsCollection";
 
@@ -18,12 +17,15 @@ const ProductPage = ({ ...props }) => {
   const dispatch = useDispatch();
   let items = [];
   let { category } = useParams();
-  let key = category.toLowerCase().replace(/\s/g, "");
+  let key = "boardgames";
+
+  if (category) {
+    key = category.toLowerCase().replace(/\s/g, "");
+  }
 
   useEffect(() => {
     db.collection("Inventory").onSnapshot((snapshot) => {
       snapshot.docs.map((doc) => {
-        console.log(category.toLowerCase());
         if (doc.data().category === key) {
           items = [...items, { id: doc.id, ...doc.data() }];
         }
@@ -31,7 +33,7 @@ const ProductPage = ({ ...props }) => {
 
       dispatch(
         setItems({
-          [key]: items,
+          collections: items,
         })
       );
     });
@@ -47,7 +49,7 @@ const ProductPage = ({ ...props }) => {
         <SearchBar />
         <SubContainer>
           <SortBar />
-          <ItemsCollection category={key} />
+          <ItemsCollection />
         </SubContainer>
       </Container>
       <Container>
@@ -60,7 +62,7 @@ const ProductPage = ({ ...props }) => {
 export default withRouter(ProductPage);
 
 const Title = styled.div`
-  margin: 2rem 8rem;
+  margin: 2rem 5rem;
 
   height: 40vh;
   display: flex;
