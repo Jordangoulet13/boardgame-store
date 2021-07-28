@@ -17,7 +17,7 @@ export default ItemsCollection;
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 35rem;
+  grid-template-rows: 350px;
   width: 75%;
   margin: 0 3rem; ;
 `;

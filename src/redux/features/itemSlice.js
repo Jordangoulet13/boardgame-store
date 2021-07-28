@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   collections: null,
+  item: null,
 };
 
 const itemSlice = createSlice({
@@ -10,6 +11,9 @@ const itemSlice = createSlice({
   reducers: {
     setItems: (state, action) => {
       state.collections = action.payload.collections;
+    },
+    setItem: (state, action) => {
+      state.item = action.payload.item;
     },
     sortByDate: (state) => {
       state.collections = state.collections
@@ -46,6 +50,7 @@ const itemSlice = createSlice({
 
 export const {
   setItems,
+  setItem,
   sortByDate,
   sortByLowest,
   sortByHighest,
@@ -55,5 +60,5 @@ export const {
 } = itemSlice.actions;
 
 export const selectCollections = (state) => state.item.collections;
-
+export const selectItem = (state) => state.item.item;
 export default itemSlice.reducer;

@@ -65,7 +65,7 @@ const CategoriesContainer = styled.div`
     margin-bottom: 3rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-gap: 3rem;
+    column-gap: 3rem;
     grid-template-rows: 20rem;
     & :nth-child(2n) {
       grid-template-columns: 1fr 2fr;
@@ -77,5 +77,6 @@ const CategoriesContainer = styled.div`
 
   & :last-child {
     grid-template-columns: 1fr 1fr 1fr;
+    /* column-gap: 1.5rem; */
   }
 `;

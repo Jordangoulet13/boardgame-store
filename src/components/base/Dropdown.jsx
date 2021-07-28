@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
 import {
   faChevronDown,
   faChevronRight,
@@ -17,7 +16,7 @@ import {
   sortByPop,
 } from "../../redux/features/itemSlice";
 
-const Dropdown = ({ options, label, key }) => {
+const Dropdown = ({ options, label }) => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const items = useSelector(selectCollections);

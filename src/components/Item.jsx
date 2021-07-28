@@ -1,8 +1,22 @@
 import styled from "styled-components";
+import { withRouter } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setItem } from "../redux/features/itemSlice";
 
-const Item = ({ item }) => {
+const Item = ({ item, history, match }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = (item) => {
+    dispatch(
+      setItem({
+        item: item,
+      })
+    );
+    history.push(`${match.url}/${item.name}`);
+  };
+
   return (
-    <Container>
+    <Container onClick={() => handleClick(item)}>
       {item.available ? null : <Available>Out of stock</Available>}
       {item.sale ? <Available sale>-{item.sale}%</Available> : null}
       <Image src={item.image} />
@@ -22,7 +36,7 @@ const Item = ({ item }) => {
   );
 };
 
-export default Item;
+export default withRouter(Item);
 
 const Container = styled.div`
   display: flex;
@@ -71,11 +85,13 @@ const TextContainer = styled.div`
 
 const Text = styled.span`
   padding-top: 2rem;
+  margin: 0;
 `;
 
 const Price = styled.span`
   font-weight: 400;
   font-size: 1.6rem;
+  margin: 0;
   span {
     padding: 0 1rem;
     :first-child {

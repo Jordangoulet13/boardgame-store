@@ -62,7 +62,7 @@ const ProductPage = ({ ...props }) => {
 export default withRouter(ProductPage);
 
 const Title = styled.div`
-  margin: 2rem 5rem;
+  margin: 2rem 7rem;
 
   height: 40vh;
   display: flex;
