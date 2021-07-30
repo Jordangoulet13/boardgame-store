@@ -3,12 +3,17 @@ import Item from "./Item";
 
 import { useSelector } from "react-redux";
 import { selectCollections } from "../redux/features/itemSlice";
+import Spinner from "./base/Spinner";
 
 const ItemsCollection = () => {
   const items = useSelector(selectCollections);
   return (
     <Container>
-      {items && items.map((item) => <Item item={item} key={item.id} />)}
+      {items ? (
+        items && items.map((item) => <Item item={item} key={item.id} />)
+      ) : (
+        <Spinner />
+      )}
     </Container>
   );
 };

@@ -1,18 +1,13 @@
 import styled from "styled-components";
-const WithSpinner = (WrappedComponent) => {
-  const Spinner = ({ isLoading, ...otherProps }) => {
-    return isLoading ? (
-      <SpinnerOverlay>
-        <SpinnerContainer />
-      </SpinnerOverlay>
-    ) : (
-      <WrappedComponent {...otherProps} />
-    );
-  };
-  return Spinner;
+const Spinner = () => {
+  return (
+    <SpinnerOverlay>
+      <SpinnerContainer />
+    </SpinnerOverlay>
+  );
 };
 
-export default WithSpinner;
+export default Spinner;
 
 export const SpinnerOverlay = styled.div`
   height: 60vh;

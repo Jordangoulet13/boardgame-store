@@ -2,8 +2,12 @@ import styled from "styled-components";
 import Counter from "./base/Counter";
 import Button from "./base/Button";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addCartItem } from "../redux/features/cartSlice";
 
 const ItemDescription = ({ item }) => {
+  const dispatch = useDispatch();
+
   const {
     name,
     EAN,
@@ -30,7 +34,9 @@ const ItemDescription = ({ item }) => {
       setCount(++count);
     }
   };
-
+  const handleClick = (item, count) => {
+    dispatch(addCartItem({ addedItem: item, quantity: count }));
+  };
   return (
     <Container>
       <ImageContainer>
@@ -62,7 +68,9 @@ const ItemDescription = ({ item }) => {
             handleDecrement={handleDecrement}
             count={count}
           />
-          <StyledButton categories>ADD TO CART</StyledButton>
+          <StyledButton categories onClick={() => handleClick(item)}>
+            ADD TO CART
+          </StyledButton>
         </ButtonContainer>
       </DetailsContainer>
     </Container>
