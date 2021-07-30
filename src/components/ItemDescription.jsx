@@ -35,7 +35,10 @@ const ItemDescription = ({ item }) => {
     }
   };
   const handleClick = (item, count) => {
-    dispatch(addCartItem({ addedItem: item, quantity: count }));
+    console.log(count);
+    if (count > 0) {
+      dispatch(addCartItem({ addedItem: item, quantity: count }));
+    }
   };
   return (
     <Container>
@@ -68,7 +71,7 @@ const ItemDescription = ({ item }) => {
             handleDecrement={handleDecrement}
             count={count}
           />
-          <StyledButton categories onClick={() => handleClick(item)}>
+          <StyledButton categories onClick={() => handleClick(item, count)}>
             ADD TO CART
           </StyledButton>
         </ButtonContainer>
