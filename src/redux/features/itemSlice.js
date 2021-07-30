@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   collections: null,
-  item: null,
+  itemSelected: null,
 };
 
 const itemSlice = createSlice({
@@ -13,7 +13,7 @@ const itemSlice = createSlice({
       state.collections = action.payload.collections;
     },
     setItem: (state, action) => {
-      state.item = action.payload.item;
+      state.itemSelected = action.payload.item;
     },
     sortByDate: (state) => {
       state.collections = state.collections
@@ -60,5 +60,5 @@ export const {
 } = itemSlice.actions;
 
 export const selectCollections = (state) => state.item.collections;
-export const selectItem = (state) => state.item.item;
+export const selectItem = (state) => state.item.itemSelected;
 export default itemSlice.reducer;

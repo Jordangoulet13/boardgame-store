@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import Counter from "./base/Counter";
+import Button from "./base/Button";
+import { useState } from "react";
 
 const ItemDescription = ({ item }) => {
   const {
@@ -12,7 +15,21 @@ const ItemDescription = ({ item }) => {
     price,
     sale,
     saleprice,
+    description,
   } = item;
+
+  let [count, setCount] = useState(0);
+
+  const handleDecrement = () => {
+    if (count > 0) {
+      setCount(--count);
+    }
+  };
+  const handleIncrement = () => {
+    if (count < available) {
+      setCount(++count);
+    }
+  };
 
   return (
     <Container>
@@ -27,6 +44,26 @@ const ItemDescription = ({ item }) => {
       </ImageContainer>
       <DetailsContainer>
         <DetailsHeader>{name}</DetailsHeader>
+        <DetailsDescription>{description}</DetailsDescription>
+        <DetailsPrice>${price} CAD</DetailsPrice>
+        <OtherDetailsContainer>
+          <DetailsOtherTitle>Brand:</DetailsOtherTitle>
+          <DetailsOther>{brand}</DetailsOther>
+          <DetailsOtherTitle>EAN:</DetailsOtherTitle>
+          <DetailsOther>{EAN}</DetailsOther>
+          <DetailsOtherTitle>Earns:</DetailsOtherTitle>
+          <DetailsOther>{earns}</DetailsOther>
+          <DetailsOtherTitle>Available:</DetailsOtherTitle>
+          <DetailsOther> {available} copies</DetailsOther>
+        </OtherDetailsContainer>{" "}
+        <ButtonContainer>
+          <Counter
+            handleIncrement={handleIncrement}
+            handleDecrement={handleDecrement}
+            count={count}
+          />
+          <StyledButton categories>ADD TO CART</StyledButton>
+        </ButtonContainer>
       </DetailsContainer>
     </Container>
   );
@@ -97,8 +134,43 @@ const DetailsHeader = styled.h1`
   font-size: 4rem;
 `;
 
-const DetailsDescription = styled.p``;
+const DetailsDescription = styled.p`
+  display: inline-block;
+  width: 65%;
+  font-size: 1.5rem;
+  color: grey;
+  font-family: ${(p) => p.theme.tertiaryfontFamily};
+`;
 
-const DetailsPrice = styled.p``;
+const DetailsPrice = styled.p`
+  font-size: 3rem;
+  font-family: ${(p) => p.theme.tertiaryfontFamily};
+  margin: 2rem 0;
+`;
+
+const DetailsOtherTitle = styled.p``;
 
 const DetailsOther = styled.p``;
+
+const OtherDetailsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 2.5rem;
+  font-size: 1.4rem;
+  font-family: ${(p) => p.theme.tertiaryfontFamily};
+  padding: 0;
+  margin: 0;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  margin-top: 5rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+`;
+
+const StyledButton = styled(Button)`
+  width: 20rem;
+  font-size: 1.5rem;
+`;
