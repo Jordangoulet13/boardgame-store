@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { useParams, withRouter } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import db from "../firebase/firebase.utils";
-import { setItems } from "../redux/features/itemSlice";
+import { filterByCategory } from "../redux/features/itemSlice";
 
 import Header from "../components/Header";
 import Container from "../components/base/Container";
@@ -15,28 +14,15 @@ import Footer from "../components/Footer";
 
 const ProductPage = ({ ...props }) => {
   const dispatch = useDispatch();
-  let items = [];
   let { category } = useParams();
-  let key = "boardgames";
 
+  let key = "boardgames";
   if (category) {
     key = category.toLowerCase().replace(/\s/g, "");
   }
 
   useEffect(() => {
-    db.collection("Inventory").onSnapshot((snapshot) => {
-      snapshot.docs.map((doc) => {
-        if (doc.data().category === key) {
-          items = [...items, { id: doc.id, ...doc.data() }];
-        }
-      });
-
-      dispatch(
-        setItems({
-          collections: items,
-        })
-      );
-    });
+    dispatch(filterByCategory({ category: key }));
   }, []);
 
   return (

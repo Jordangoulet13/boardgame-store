@@ -2,11 +2,13 @@ import styled from "styled-components";
 import Item from "./Item";
 
 import { useSelector } from "react-redux";
-import { selectCollections } from "../redux/features/itemSlice";
+
+import { selectFilteredCollections } from "../redux/features/itemSlice";
 import Spinner from "./base/Spinner";
 
 const ItemsCollection = () => {
-  const items = useSelector(selectCollections);
+  const items = useSelector(selectFilteredCollections);
+
   return (
     <Container>
       {items ? (

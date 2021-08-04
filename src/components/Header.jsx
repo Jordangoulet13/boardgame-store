@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import Button from "./base/Button";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faBars,
   faShoppingBasket,
@@ -12,6 +13,7 @@ import { Link } from "react-router-dom";
 
 const Header = (props) => {
   const [scroll, setScroll] = useState(false);
+  library.add(faBars, faShoppingBasket, faSearch, faMapMarkerAlt);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
