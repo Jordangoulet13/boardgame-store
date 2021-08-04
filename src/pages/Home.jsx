@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import db from "../firebase/firebase.utils";
@@ -15,9 +14,9 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   const dispatch = useDispatch();
-  let items = [];
 
   useEffect(() => {
+    let items = [];
     db.collection("Inventory").onSnapshot((snapshot) => {
       snapshot.docs.map((doc) => {
         return (items = [...items, { id: doc.id, ...doc.data() }]);
@@ -29,7 +28,7 @@ const Home = () => {
         })
       );
     });
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <ImageCarousel />

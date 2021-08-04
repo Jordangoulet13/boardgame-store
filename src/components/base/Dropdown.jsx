@@ -20,7 +20,7 @@ const Dropdown = ({ options, label }) => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const items = useSelector(selectCollections);
-  console.log(items);
+
   // let { category } = useParams();
   // if (category) {
   //   key = category.toLowerCase().replace(/\s/g, "");

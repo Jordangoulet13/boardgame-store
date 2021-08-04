@@ -18,12 +18,12 @@ const ContactAbout = (props) => {
             Our two stores in downtown Vancouver and New Westminster, BC are
             filled to the brim with board games, card games, jigsaw puzzles, and
             more.
-            <p>
-              {" "}
-              Still can't find what you're looking for? Drop us a line and we'll
-              try to track it down for you!
-            </p>
           </p>
+          <p>
+            Still can't find what you're looking for? Drop us a line and we'll
+            try to track it down for you!
+          </p>
+
           <StyledButton secondary>CONTACT US</StyledButton>
         </Info>
         <Info>
@@ -33,12 +33,13 @@ const ContactAbout = (props) => {
             Canada, we want to spark empathy, creativity, and fun in our
             communities. After all, games are how we learn, grow, and spend time
             with the people we love.
-            <p>
-              From recommending titles for game night at home to hosting
-              in-store (now online!) events, we want to help you build your
-              gaming community.
-            </p>
           </p>
+          <p>
+            From recommending titles for game night at home to hosting in-store
+            (now online!) events, we want to help you build your gaming
+            community.
+          </p>
+
           <StyledButton secondary>ABOUT US</StyledButton>
         </Info>
         <img src={storeImg} alt="" />

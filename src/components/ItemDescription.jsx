@@ -1,28 +1,36 @@
 import styled from "styled-components";
 import Counter from "./base/Counter";
 import Button from "./base/Button";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addCartItem } from "../redux/features/cartSlice";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addCartItem, selectCartItems } from "../redux/features/cartSlice";
+import { selectItem } from "../redux/features/itemSlice";
 
 const ItemDescription = ({ item }) => {
   const dispatch = useDispatch();
 
-  const {
-    name,
-    EAN,
-    available,
-    brand,
-    category,
-    earns,
-    image,
-    price,
-    sale,
-    saleprice,
-    description,
-  } = item;
+  const cartItems = useSelector(selectCartItems);
+  const { name, EAN, available, brand, earns, image, price, description } =
+    item;
 
   let [count, setCount] = useState(0);
+  let [quantity, setQuantity] = useState(available);
+
+  useEffect(() => {
+    const getQuantity = async () => {
+      let found = cartItems.find((cartItem) => cartItem.id === item.id);
+      if (found) {
+        try {
+          const data = await found.quantity;
+          const total = available - data;
+          return setQuantity(total);
+        } catch (error) {
+          return error.message;
+        }
+      }
+    };
+    getQuantity();
+  });
 
   const handleDecrement = () => {
     if (count > 0) {
@@ -30,16 +38,17 @@ const ItemDescription = ({ item }) => {
     }
   };
   const handleIncrement = () => {
-    if (count < available) {
+    if (count < available && count < quantity) {
       setCount(++count);
     }
   };
   const handleClick = (item, count) => {
-    console.log(count);
     if (count > 0) {
       dispatch(addCartItem({ addedItem: item, quantity: count }));
+      setCount(0);
     }
   };
+
   return (
     <Container>
       <ImageContainer>

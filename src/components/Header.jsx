@@ -10,15 +10,23 @@ import {
 import logo from "../assets/img-logo.png";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCartItemsCount } from "../redux/features/cartSlice";
 
 const Header = (props) => {
+  const cartCount = useSelector(selectCartItemsCount);
   const [scroll, setScroll] = useState(false);
   library.add(faBars, faShoppingBasket, faSearch, faMapMarkerAlt);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 5);
-    });
+    window.addEventListener(
+      "scroll",
+      () => {
+        setScroll(window.scrollY > 5);
+      },
+      { passive: true }
+    );
+    return () => setScroll(false);
   }, []);
 
   return (
@@ -27,7 +35,9 @@ const Header = (props) => {
         <Logo />
       </Link>
       <Button icon={faBars} />
-      <Button icon={faShoppingBasket} />
+      <Button icon={faShoppingBasket}>
+        <CountContainer>{cartCount > 0 ? cartCount : null}</CountContainer>
+      </Button>
       <Button icon={faSearch} />
       <Button icon={faMapMarkerAlt} />
     </Container>
@@ -67,4 +77,15 @@ const Logo = styled.div`
   width: 20rem;
   height: 100%;
   cursor: pointer;
+`;
+
+const CountContainer = styled.div`
+  z-index: 999;
+  font-size: 2rem;
+
+  font-weight: 800;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;

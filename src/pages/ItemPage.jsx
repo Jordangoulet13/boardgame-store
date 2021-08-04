@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { selectItem } from "../redux/features/itemSlice";
 import Header from "../components/Header";
@@ -8,7 +7,6 @@ import Footer from "../components/Footer";
 
 const ItemPage = () => {
   const item = useSelector(selectItem);
-  console.log(item);
   if (item) {
     return (
       <>

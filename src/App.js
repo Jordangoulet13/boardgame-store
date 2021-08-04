@@ -4,8 +4,6 @@ import theme from "./theme/theme";
 import { Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
-import ProductPage from "./pages/ProductPage";
-import ItemPage from "./pages/ItemPage";
 import ShopPage from "./pages/ShopPage";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ListItem from "./base/ListItem";
 // import { FaCcMastercard } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCcMastercard,
   faCcVisa,
@@ -15,6 +16,17 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const footer = () => {
+  library.add(
+    faCcMastercard,
+    faCcVisa,
+    faCcPaypal,
+    faFacebookF,
+    faTwitter,
+    faPinterest,
+    faInstagram,
+    faDiscord,
+    faTwitch
+  );
   return (
     <>
       <Container>

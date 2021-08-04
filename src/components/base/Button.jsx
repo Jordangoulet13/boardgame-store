@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Button = ({ children, icon, ...props }) => {
   return (
     <Container {...props}>
-      <StyledFontAwesomeIcon icon={icon} size="2x" />
+      {icon ? <StyledFontAwesomeIcon icon={icon} size="2x" /> : null}
       <span>{children}</span>
     </Container>
   );
@@ -48,6 +48,8 @@ const Container = styled.div`
   width: 8rem;
   height: 100%;
   display: flex;
+  position: relative;
+
   justify-content: center;
   align-items: center;
   background-color: ${(p) => p.theme.buttonPrimary};
