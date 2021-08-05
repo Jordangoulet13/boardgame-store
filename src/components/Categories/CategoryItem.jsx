@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const CategoryItem = ({ image, title, ...props }) => {
   return (
     <Container>
-      <Link to={`/${title}`}>
+      <Link to={`/shop/${title}`}>
         <img src={image} alt="" />
         {title ? <h1>{title}</h1> : null}
       </Link>

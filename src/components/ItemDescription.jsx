@@ -17,11 +17,11 @@ const ItemDescription = ({ item }) => {
   let [quantity, setQuantity] = useState(available);
 
   useEffect(() => {
-    const getQuantity = async () => {
+    const getQuantity = () => {
       let found = cartItems.find((cartItem) => cartItem.id === item.id);
       if (found) {
         try {
-          const data = await found.quantity;
+          const data = found.quantity;
           const total = available - data;
           return setQuantity(total);
         } catch (error) {

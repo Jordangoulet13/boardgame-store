@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import ShopPage from "./pages/ShopPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <ScrollToTop>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/:category" component={ShopPage} />
+            <Route path="/shop/:category" component={ShopPage} />
+            <Route path="/Checkout" component={CheckoutPage} />
           </Switch>
         </ScrollToTop>
       </ThemeProvider>

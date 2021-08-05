@@ -9,7 +9,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2rem 7rem;
-  padding: 5rem 1rem;
+  padding: ${(p) => (p.checkout ? "2.5rem 1.8rem" : "5rem 1rem")};
 
   background-color: ${(p) => (p.product ? "#fff" : "")};
   box-shadow: ${(p) =>

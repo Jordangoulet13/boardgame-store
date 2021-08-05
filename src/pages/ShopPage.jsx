@@ -9,7 +9,7 @@ const ShopPage = (props) => {
 
   return (
     <>
-      <Route exact path={"/:category"} component={ProductPage} />
+      <Route exact path={"/shop/:category"} component={ProductPage} />
       <Route path={`${match.path}/:item`} component={ItemPage} />
     </>
   );

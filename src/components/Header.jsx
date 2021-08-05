@@ -35,9 +35,11 @@ const Header = (props) => {
         <Logo />
       </Link>
       <Button icon={faBars} />
-      <Button icon={faShoppingBasket}>
-        <CountContainer>{cartCount > 0 ? cartCount : null}</CountContainer>
-      </Button>
+      <Link to={`/Checkout`}>
+        <Button icon={faShoppingBasket}>
+          <CountContainer>{cartCount > 0 ? cartCount : null}</CountContainer>
+        </Button>
+      </Link>
       <Button icon={faSearch} />
       <Button icon={faMapMarkerAlt} />
     </Container>
