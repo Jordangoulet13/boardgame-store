@@ -1,18 +1,21 @@
 import styled from "styled-components";
 import Item from "./Item";
-
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { selectFilteredCollections } from "../redux/features/itemSlice";
+import {
+  selectFilteredCollections,
+  selectFilteredByOther,
+} from "../redux/features/itemSlice";
 import Spinner from "./base/Spinner";
 
 const ItemsCollection = () => {
-  const items = useSelector(selectFilteredCollections);
+  const items = useSelector(selectFilteredByOther);
 
   return (
     <Container>
       {items ? (
-        items && items.map((item) => <Item item={item} key={item.id} />)
+        items.map((item) => <Item item={item} key={item.id} />)
       ) : (
         <Spinner />
       )}

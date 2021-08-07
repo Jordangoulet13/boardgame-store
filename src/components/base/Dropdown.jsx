@@ -5,9 +5,8 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
-  selectCollections,
   sortByDate,
   sortByLowest,
   sortByHighest,
@@ -19,7 +18,6 @@ import {
 const Dropdown = ({ options, label }) => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  const items = useSelector(selectCollections);
 
   // let { category } = useParams();
   // if (category) {
@@ -41,7 +39,6 @@ const Dropdown = ({ options, label }) => {
         break;
       case "sortByHighest":
         dispatch(sortByHighest());
-        console.log(items);
         break;
       case "sortByNameAsc":
         dispatch(sortByNameAsc());
@@ -56,7 +53,7 @@ const Dropdown = ({ options, label }) => {
   const RenderedOptions = () =>
     options.map((option) => {
       return (
-        <OptionContainer onClick={() => handleClick(option)}>
+        <OptionContainer onClick={() => handleClick(option)} key={option.label}>
           <ArrowContainer>
             <FontAwesomeIcon icon={faChevronRight} size="lg" />
           </ArrowContainer>

@@ -17,13 +17,14 @@ const ProductPage = ({ ...props }) => {
   let { category } = useParams();
 
   useEffect(() => {
+    console.log(category);
     let key = "boardgames";
     if (category) {
       key = category.toLowerCase().replace(/\s/g, "");
     }
 
     dispatch(filterByCategory({ category: key }));
-  }, [dispatch, category]);
+  });
 
   return (
     <>

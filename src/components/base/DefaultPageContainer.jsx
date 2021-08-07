@@ -17,7 +17,7 @@ const DefaultPageContainer = ({ children, ...props }) => {
       <Title>
         <h1>{category ? category : location}</h1>
       </Title>
-      <>{children}</>
+      <StyledContainer>{children}</StyledContainer>
       <Container>
         <Footer />
       </Container>
@@ -41,4 +41,9 @@ const Title = styled.div`
     font-size: 4rem;
     margin: 0;
   }
+`;
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

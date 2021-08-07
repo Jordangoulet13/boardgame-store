@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   collections: null,
   itemSelected: null,
+  categoryFilteredCollection: null,
   filteredCollection: null,
 };
 
@@ -17,9 +18,10 @@ const itemSlice = createSlice({
       state.itemSelected = action.payload.item;
     },
     filterByCategory: (state, action) => {
-      state.filteredCollection = state.collections.filter(
+      state.categoryFilteredCollection = state.collections.filter(
         (item) => item.category === action.payload.category
       );
+      state.filteredCollection = state.categoryFilteredCollection;
     },
     sortByDate: (state) => {
       state.filteredCollection = state.filteredCollection
@@ -51,6 +53,12 @@ const itemSlice = createSlice({
         .slice()
         .sort((a, b) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
     },
+    filterByPriceRange: (state, action) => {
+      state.filteredCollection = state.categoryFilteredCollection.filter(
+        (item) =>
+          item.price > action.payload.start && item.price < action.payload.end
+      );
+    },
   },
 });
 
@@ -64,11 +72,13 @@ export const {
   sortByNameAsc,
   sortByNameDesc,
   sortByPop,
+  filterByPriceRange,
 } = itemSlice.actions;
 
 export const selectCollections = (state) => state.item.collections;
 export const selectFilteredCollections = (state) =>
-  state.item.filteredCollection;
+  state.item.categoryFilteredCollection;
+export const selectFilteredByOther = (state) => state.item.filteredCollection;
 export const selectItem = (state) => state.item.itemSelected;
 
 export default itemSlice.reducer;

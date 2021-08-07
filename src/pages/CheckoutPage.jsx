@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCartItems,
+  selectCartPriceTotal,
+  selectCartPointsTotal,
   addCartItem,
   removeCartItem,
 } from "../redux/features/cartSlice";
@@ -10,10 +11,18 @@ import {
 import DefaultPageContainer from "../components/base/DefaultPageContainer";
 import Container from "../components/base/Container";
 import Counter from "../components/base/Counter";
+import Button from "../components/base/Button";
 
 const CheckoutPage = () => {
   const cartItems = useSelector(selectCartItems);
-  const [total, setTotal] = useState(0);
+  const totalPriceFull = useSelector(selectCartPriceTotal);
+  const totalPoints = useSelector(selectCartPointsTotal);
+  const totalPrice = totalPriceFull.toFixed(2);
+  const totalTax = (totalPrice * 0.05).toFixed(2);
+  const totalWithTax = +totalPrice + +totalTax;
+
+  console.log(cartItems);
+  console.log(totalPoints);
   const dispatch = useDispatch();
   const handleDecrement = (item) => {
     dispatch(removeCartItem({ itemToRemove: item }));
@@ -39,7 +48,6 @@ const CheckoutPage = () => {
           <GridHeading>Item Price</GridHeading>
           <GridHeading>Subtotal</GridHeading>
         </GridHeadingContainer>
-
         {cartItems.map((cartItem) => (
           <GridItemsContainer key={cartItem.id}>
             <GridContent product>
@@ -68,8 +76,27 @@ const CheckoutPage = () => {
             </GridContent>
           </GridItemsContainer>
         ))}
-        <Text>Hello</Text>
       </Container>
+      <SubTotalContainer product>
+        <Text>Want to earn points on every order?</Text>
+        <ButtonContainer>
+          <StyledButton>Learn More</StyledButton>
+          <StyledButton>MyAccount / Register</StyledButton>
+        </ButtonContainer>
+        <TotalContainer border>
+          <Text bold>Subtotal:</Text>
+          <Text bold>${totalPrice}</Text>
+          <Text>GST : 5%</Text>
+          <Text>${totalTax}</Text>
+        </TotalContainer>
+        <TotalContainer>
+          <Text large>Total incl. tax:</Text>
+          <Text large>{totalWithTax}</Text>
+          <Text>Points earned:</Text>
+          <Text>{totalPoints}</Text>
+        </TotalContainer>
+        <CheckoutButton>CheckOut</CheckoutButton>
+      </SubTotalContainer>
     </DefaultPageContainer>
   );
 };
@@ -115,6 +142,49 @@ const GridImage = styled.img`
 `;
 
 const Text = styled.div`
-  font-size: 1.8rem;
-  padding-left: ${(p) => (p.product ? "2rem" : "0")};
+  font-size: ${(p) => (p.large ? "2.1rem" : "1.8rem")};
+  padding-left: ${(p) => (p.product ? "1.5rem" : "0")};
+  font-weight: ${(p) => (p.bold ? "800" : "0")};
+`;
+
+const SubTotalContainer = styled(Container)`
+  width: 50rem;
+  height: 43rem;
+  padding: 2rem;
+  align-self: flex-end;
+  display: flex;
+`;
+const ButtonContainer = styled.div`
+  display: flex;
+  height: auto;
+  justify-content: space-around;
+  padding: 1.5rem;
+`;
+
+const StyledButton = styled(Button)`
+  background-color: grey;
+
+  width: fit-content;
+  padding: 1.3rem;
+  color: #fff;
+  font-size: 1.5rem;
+`;
+
+const TotalContainer = styled.div`
+  display: grid;
+  grid-template-columns: 15rem 15rem;
+  grid-template-rows: 5rem 5rem;
+  justify-content: flex-end;
+  text-align: center;
+  border-bottom: ${(p) => (p.border ? "1px solid grey" : "none")};
+  margin-top: 2rem;
+`;
+
+const CheckoutButton = styled(Button)`
+  align-self: flex-end;
+  font-size: 1.5rem;
+  width: 15rem;
+  height: 20rem;
+  color: #fff;
+  font-weight: 900;
 `;

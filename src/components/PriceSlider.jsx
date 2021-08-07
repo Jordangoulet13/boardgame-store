@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { filterByPriceRange } from "../redux/features/itemSlice";
 
 import Slider from "@material-ui/core/Slider";
 import styled from "styled-components";
@@ -8,10 +10,15 @@ function valuetext(value) {
 }
 
 const PriceSlider = () => {
-  const [values, setValue] = useState([19, 53]);
+  const dispatch = useDispatch();
+
+  const [values, setValue] = useState([0, 300]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    console.log(values);
+
+    dispatch(filterByPriceRange({ start: values[0], end: values[1] }));
   };
 
   const handleInputChange = (event) => {
@@ -19,7 +26,6 @@ const PriceSlider = () => {
     let newVal = [...values];
     newVal[name] = value;
     setValue(newVal);
-    console.log(values);
   };
   return (
     <Container>
@@ -28,6 +34,8 @@ const PriceSlider = () => {
         onChange={handleChange}
         aria-labelledby="range-slider"
         getAriaValueText={valuetext}
+        min={0}
+        max={300}
       />
       <PriceSet>
         <span>

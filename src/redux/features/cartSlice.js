@@ -43,4 +43,20 @@ export const selectCartItemAvailable = (state, item) => {
     : null;
 };
 
+export const selectCartPriceTotal = (state) => {
+  return state.cart.cartItems.reduce(
+    (accumalatedQuantity, cartItem) =>
+      accumalatedQuantity + cartItem.quantity * cartItem.price,
+    0
+  );
+};
+
+export const selectCartPointsTotal = (state) => {
+  return state.cart.cartItems.reduce(
+    (accumalatedQuantity, cartItem) =>
+      accumalatedQuantity + cartItem.quantity * cartItem.earns,
+    0
+  );
+};
+
 export default cartSlice.reducer;

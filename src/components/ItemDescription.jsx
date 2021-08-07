@@ -4,7 +4,6 @@ import Button from "./base/Button";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCartItem, selectCartItems } from "../redux/features/cartSlice";
-import { selectItem } from "../redux/features/itemSlice";
 
 const ItemDescription = ({ item }) => {
   const dispatch = useDispatch();
