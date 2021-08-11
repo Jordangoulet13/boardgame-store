@@ -18,10 +18,15 @@ const itemSlice = createSlice({
       state.itemSelected = action.payload.item;
     },
     filterByCategory: (state, action) => {
-      state.categoryFilteredCollection = state.collections.filter(
-        (item) => item.category === action.payload.category
-      );
-      state.filteredCollection = state.categoryFilteredCollection;
+      if (action.payload.category != null) {
+        state.categoryFilteredCollection = state.collections.filter(
+          (item) => item.category === action.payload.category
+        );
+        state.filteredCollection = state.categoryFilteredCollection;
+      } else {
+        state.filteredCollection = state.collections;
+        state.categoryFilteredCollection = state.collections;
+      }
     },
     sortByDate: (state) => {
       state.filteredCollection = state.filteredCollection

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { filterByPriceRange } from "../redux/features/itemSlice";
 
@@ -11,14 +11,14 @@ function valuetext(value) {
 
 const PriceSlider = () => {
   const dispatch = useDispatch();
-
   const [values, setValue] = useState([0, 300]);
+
+  useEffect(() => {
+    dispatch(filterByPriceRange({ start: values[0], end: values[1] }));
+  }, [values, dispatch]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log(values);
-
-    dispatch(filterByPriceRange({ start: values[0], end: values[1] }));
   };
 
   const handleInputChange = (event) => {

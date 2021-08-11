@@ -21,9 +21,11 @@ const ProductPage = ({ ...props }) => {
     let key = "boardgames";
     if (category) {
       key = category.toLowerCase().replace(/\s/g, "");
+      if (key === "allcategories") {
+        key = null;
+      }
+      dispatch(filterByCategory({ category: key }));
     }
-
-    dispatch(filterByCategory({ category: key }));
   });
 
   return (

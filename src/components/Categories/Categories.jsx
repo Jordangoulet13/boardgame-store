@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CategoryItem from "./CategoryItem";
 import Button from "../base/Button";
+import { withRouter } from "react-router-dom";
 
 //CategoriesImages
 import asmondeeSale from "../../assets/Categories/asmondeeSale.jpg";
@@ -24,7 +25,7 @@ const Titles = {
   magic: "Magic: The Gathering Singles",
 };
 
-const Categories = (props) => {
+const Categories = ({ history }) => {
   return (
     <Container>
       <CategoriesContainer>
@@ -46,12 +47,20 @@ const Categories = (props) => {
           <CategoryItem image={sale} />
         </div>
       </CategoriesContainer>
-      <Button categories>ALL CATEGORIES</Button>
+
+      <Button
+        categories
+        onClick={() => {
+          history.push("/shop/All Categories");
+        }}
+      >
+        ALL CATEGORIES
+      </Button>
     </Container>
   );
 };
 
-export default Categories;
+export default withRouter(Categories);
 
 const Container = styled.div`
   display: flex;
