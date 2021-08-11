@@ -44,7 +44,7 @@ const Categories = ({ history }) => {
         <div>
           <CategoryItem image={tradingCards} title={Titles.tradingCards} />
           <CategoryItem image={magic} title={Titles.magic} />
-          <CategoryItem image={sale} />
+          <CategoryItem image={sale} sale />
         </div>
       </CategoriesContainer>
 

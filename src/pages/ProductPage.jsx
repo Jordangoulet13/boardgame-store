@@ -2,7 +2,12 @@ import styled from "styled-components";
 import { useParams, withRouter } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { filterByCategory } from "../redux/features/itemSlice";
+import {
+  filterByCategory,
+  filterByBrand,
+  filterBySale,
+  filterByPreorder,
+} from "../redux/features/itemSlice";
 
 import Header from "../components/Header";
 import Container from "../components/base/Container";
@@ -21,10 +26,24 @@ const ProductPage = ({ ...props }) => {
     let key = "boardgames";
     if (category) {
       key = category.toLowerCase().replace(/\s/g, "");
-      if (key === "allcategories") {
-        key = null;
+      switch (category) {
+        case "All Categories":
+          key = "allCategories";
+          dispatch(filterByCategory({ category: key }));
+          break;
+        case "The Asmondee Summer Sale is on!":
+          key = "Asmondee";
+          dispatch(filterByBrand({ brand: key }));
+          break;
+        case "Preorders":
+          dispatch(filterByPreorder());
+          break;
+        case "Sale":
+          dispatch(filterBySale());
+          break;
+        default:
+          dispatch(filterByCategory({ category: key }));
       }
-      dispatch(filterByCategory({ category: key }));
     }
   });
 

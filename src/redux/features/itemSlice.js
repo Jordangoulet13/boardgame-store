@@ -18,15 +18,33 @@ const itemSlice = createSlice({
       state.itemSelected = action.payload.item;
     },
     filterByCategory: (state, action) => {
-      if (action.payload.category != null) {
+      if (action.payload.category === "allCategories") {
+        state.filteredCollection = state.collections;
+        state.categoryFilteredCollection = state.collections;
+      } else {
         state.categoryFilteredCollection = state.collections.filter(
           (item) => item.category === action.payload.category
         );
         state.filteredCollection = state.categoryFilteredCollection;
-      } else {
-        state.filteredCollection = state.collections;
-        state.categoryFilteredCollection = state.collections;
       }
+    },
+    filterByBrand: (state, action) => {
+      state.categoryFilteredCollection = state.collections.filter(
+        (item) => item.brand === action.payload.brand
+      );
+      state.filteredCollection = state.categoryFilteredCollection;
+    },
+    filterBySale: (state) => {
+      state.categoryFilteredCollection = state.collections.filter(
+        (item) => item.sale
+      );
+      state.filteredCollection = state.categoryFilteredCollection;
+    },
+    filterByPreorder: (state) => {
+      state.categoryFilteredCollection = state.collections.filter(
+        (item) => item.preOrder
+      );
+      state.filteredCollection = state.categoryFilteredCollection;
     },
     sortByDate: (state) => {
       state.filteredCollection = state.filteredCollection
@@ -71,6 +89,9 @@ export const {
   setItems,
   setItem,
   filterByCategory,
+  filterByBrand,
+  filterBySale,
+  filterByPreorder,
   sortByDate,
   sortByLowest,
   sortByHighest,

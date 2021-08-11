@@ -108,11 +108,11 @@ const ImageContainer = styled.div`
 
 const StyledImage = styled.div`
   position: relative;
-  width: 55%;
-  height: 70%;
+  width: 40rem;
+  height: 40rem;
   background-image: url(${(p) => p.img});
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: cover;
 `;
 
