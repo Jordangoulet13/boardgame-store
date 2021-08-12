@@ -7,6 +7,7 @@ import {
   filterByBrand,
   filterBySale,
   filterByPreorder,
+  filterBySearch,
 } from "../redux/features/itemSlice";
 
 import Header from "../components/Header";
@@ -24,8 +25,13 @@ const ProductPage = ({ ...props }) => {
   useEffect(() => {
     console.log(category);
     let key = "boardgames";
+    key = category.toLowerCase().replace(/\s/g, "");
+    if (category.includes("Search")) {
+      key = category.substring(9);
+
+      category = "Search";
+    }
     if (category) {
-      key = category.toLowerCase().replace(/\s/g, "");
       switch (category) {
         case "All Categories":
           key = "allCategories";
@@ -40,6 +46,10 @@ const ProductPage = ({ ...props }) => {
           break;
         case "Sale":
           dispatch(filterBySale());
+          break;
+        case "Search":
+          console.log(key);
+          dispatch(filterBySearch({ search: key }));
           break;
         default:
           dispatch(filterByCategory({ category: key }));

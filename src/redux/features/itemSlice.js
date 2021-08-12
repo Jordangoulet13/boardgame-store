@@ -17,6 +17,16 @@ const itemSlice = createSlice({
     setItem: (state, action) => {
       state.itemSelected = action.payload.item;
     },
+    filterBySearch: (state, action) => {
+      state.categoryFilteredCollection = state.collections.filter(
+        (item) =>
+          item.name.toLowerCase().includes(action.payload.search) ||
+          item.name.includes(action.payload.search) ||
+          item.category.includes(action.payload.search)
+      );
+
+      state.filteredCollection = state.categoryFilteredCollection;
+    },
     filterByCategory: (state, action) => {
       if (action.payload.category === "allCategories") {
         state.filteredCollection = state.collections;
@@ -42,7 +52,7 @@ const itemSlice = createSlice({
     },
     filterByPreorder: (state) => {
       state.categoryFilteredCollection = state.collections.filter(
-        (item) => item.preOrder
+        (item) => item.preorder
       );
       state.filteredCollection = state.categoryFilteredCollection;
     },
@@ -88,6 +98,7 @@ const itemSlice = createSlice({
 export const {
   setItems,
   setItem,
+  filterBySearch,
   filterByCategory,
   filterByBrand,
   filterBySale,

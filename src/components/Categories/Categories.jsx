@@ -86,6 +86,5 @@ const CategoriesContainer = styled.div`
 
   & :last-child {
     grid-template-columns: 1fr 1fr 1fr;
-    /* column-gap: 1.5rem; */
   }
 `;
