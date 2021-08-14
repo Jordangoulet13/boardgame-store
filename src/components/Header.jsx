@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import Button from "./base/Button";
+import SearchBar from "./SearchBar";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faBars,
@@ -16,9 +17,11 @@ import { selectCartItemsCount } from "../redux/features/cartSlice";
 const Header = (props) => {
   const cartCount = useSelector(selectCartItemsCount);
   const [scroll, setScroll] = useState(false);
+  const [searchbarHidden, setSearchbarHidden] = useState(false);
   library.add(faBars, faShoppingBasket, faSearch, faMapMarkerAlt);
 
   useEffect(() => {
+    console.log(searchbarHidden);
     window.addEventListener(
       "scroll",
       () => {
@@ -29,20 +32,30 @@ const Header = (props) => {
     return () => setScroll(false);
   }, []);
 
+  const handleSearchClick = () => {
+    setSearchbarHidden(!searchbarHidden);
+    console.log(searchbarHidden);
+  };
+
   return (
-    <Container scrolled={scroll}>
-      <Link to="/">
-        <Logo />
-      </Link>
-      <Button icon={faBars} />
-      <Link to={`/Checkout`}>
-        <Button icon={faShoppingBasket}>
-          <CountContainer>{cartCount > 0 ? cartCount : null}</CountContainer>
-        </Button>
-      </Link>
-      <Button icon={faSearch} />
-      <Button icon={faMapMarkerAlt} />
-    </Container>
+    <>
+      <Container scrolled={scroll}>
+        <Link to="/">
+          <Logo />
+        </Link>
+        <Button icon={faBars} />
+        <Link to={`/Checkout`}>
+          <Button icon={faShoppingBasket}>
+            <CountContainer>{cartCount > 0 ? cartCount : null}</CountContainer>
+          </Button>
+        </Link>
+        <Button icon={faSearch} onClick={() => handleSearchClick()} />
+        <Button icon={faMapMarkerAlt} />
+        <Container search scrolled={scroll}>
+          {searchbarHidden ? <SearchBar header scrolled={scroll} /> : null}
+        </Container>
+      </Container>
+    </>
   );
 };
 
@@ -54,10 +67,14 @@ const Container = styled.div`
   left: 5rem;
   z-index: 999;
   display: flex;
+
   height: 8rem;
-  background-color: ${(p) => p.theme.buttonPrimary};
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-color: ${(p) => (p.search ? "none" : p.theme.buttonPrimary)};
+  box-shadow: ${(p) =>
+    p.search
+      ? "none"
+      : `rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px`};
   ${(p) =>
     p.scrolled
       ? css`
@@ -70,6 +87,14 @@ const Container = styled.div`
           top: 5rem;
           left: 5rem;
         `}
+  ${(p) =>
+    p.search
+      ? css`
+          top: 8rem;
+          left: 0;
+          background-color: "";
+        `
+      : ""}
 `;
 
 const Logo = styled.div`

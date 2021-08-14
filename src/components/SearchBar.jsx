@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Button from "./base/Button";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { withRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { filterBySearch } from "../redux/features/itemSlice";
 
-const SearchBar = ({ history }) => {
+const SearchBar = ({ header, history }) => {
   const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
 
@@ -14,22 +14,25 @@ const SearchBar = ({ history }) => {
     setSearchText(event.target.value);
   };
 
-  const handleSubmitSearch = () => {
+  const handleSubmitSearch = (event) => {
     console.log("clicked");
+
     history.push(`/shop/Search : ${searchText}`);
   };
 
   const placeholder = "Search by product name, brand, category...";
-
+  const smallPlaceholder = "Search....";
   return (
-    <Container>
-      <StyledInput
-        value={searchText}
-        onChange={onInputChange}
-        placeholder={placeholder}
-      />
-      <Button icon={faSearch} onClick={handleSubmitSearch} />
-    </Container>
+    <form onSubmit={(event) => handleSubmitSearch()}>
+      <Container>
+        <StyledInput
+          value={searchText}
+          onChange={onInputChange}
+          placeholder={header ? smallPlaceholder : placeholder}
+        />
+        <Button icon={faSearch} onClick={handleSubmitSearch} />
+      </Container>{" "}
+    </form>
   );
 };
 
