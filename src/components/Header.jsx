@@ -40,9 +40,9 @@ const Header = (props) => {
   return (
     <>
       <Container scrolled={scroll}>
-        <Link to="/">
+        <StyledLink to="/">
           <Logo />
-        </Link>
+        </StyledLink>
         <Button icon={faBars} />
         <Link to={`/Checkout`}>
           <Button icon={faShoppingBasket}>
@@ -50,7 +50,7 @@ const Header = (props) => {
           </Button>
         </Link>
         <Button icon={faSearch} onClick={() => handleSearchClick()} />
-        <Button icon={faMapMarkerAlt} />
+
         <Container search scrolled={scroll}>
           {searchbarHidden ? <SearchBar header scrolled={scroll} /> : null}
         </Container>
@@ -95,6 +95,13 @@ const Container = styled.div`
           background-color: "";
         `
       : ""}
+      @media (max-width: 770px) {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    position: fixed;
+    flex-flow: row-reverse;
+  }
 `;
 
 const Logo = styled.div`
@@ -115,4 +122,13 @@ const CountContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+const StyledLink = styled(Link)`
+  @media (max-width: 770px) {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+  }
 `;

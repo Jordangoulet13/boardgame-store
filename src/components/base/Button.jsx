@@ -17,7 +17,7 @@ const secondaryButtonStyle = css`
   background-color: ${(p) => p.theme.secondaryBackgroundColor};
   color: #fff;
   font-size: 2rem;
-  width: 15rem;
+  min-width: 15rem;
   &:hover {
     color: ${(p) => p.theme.secondaryBackgroundColor};
     background-color: #fff;
@@ -45,7 +45,7 @@ const getButtonStyles = (props) => {
 };
 
 const Container = styled.div`
-  width: 8rem;
+  min-width: 8rem;
   height: 100%;
   display: flex;
   position: relative;
