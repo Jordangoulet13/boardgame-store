@@ -30,7 +30,7 @@ const Header = (props) => {
       { passive: true }
     );
     return () => setScroll(false);
-  });
+  }, []);
 
   const handleSearchClick = () => {
     setSearchbarHidden(!searchbarHidden);
