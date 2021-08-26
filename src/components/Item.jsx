@@ -50,6 +50,9 @@ const Container = styled.div`
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     cursor: pointer;
   }
+  @media (max-width: 900px) {
+    margin: 1rem 0;
+  }
 `;
 
 const Image = styled.img`

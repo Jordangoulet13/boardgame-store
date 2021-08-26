@@ -63,7 +63,7 @@ const Container = styled.div`
   margin-bottom: 5rem;
   @media (max-width: 950px) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    grid-template-rows: 35rem 40rem 40rem 35rem;
+    grid-template-rows: repeat(4, 50rem);
   }
 
   img {
