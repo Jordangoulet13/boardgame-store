@@ -10,6 +10,9 @@ const ContentContainer = styled.div`
   flex-direction: column;
   margin: 2rem 7rem;
   padding: ${(p) => (p.checkout ? "2.5rem 1.8rem" : "5rem 1rem")};
+  @media (max-width: 770px) {
+    margin: 2rem 1rem;
+  }
 
   background-color: ${(p) => (p.product ? "#fff" : "")};
   box-shadow: ${(p) =>

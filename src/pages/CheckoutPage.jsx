@@ -45,7 +45,7 @@ const CheckoutPage = () => {
         <GridHeadingContainer>
           <GridHeading product>Product</GridHeading>
           <GridHeading>Quantity</GridHeading>
-          <GridHeading>Item Price</GridHeading>
+          <GridHeading>Price</GridHeading>
           <GridHeading>Subtotal</GridHeading>
         </GridHeadingContainer>
         {cartItems.map((cartItem) => (
@@ -111,6 +111,9 @@ const GridItemsContainer = styled.div`
   padding: 1rem 0;
   overflow: hidden;
   border-bottom: 1px solid lightgrey;
+  @media (max-width: 900px) {
+    padding: 0;
+  }
 `;
 
 const GridHeadingContainer = styled.div`
@@ -124,6 +127,9 @@ const GridHeading = styled.div`
   display: flex;
   justify-content: ${(p) => (p.product ? "flex-start" : "center")};
   align-items: center;
+  @media (max-width: 900px) {
+    font-size: 1.9rem;
+  }
 `;
 
 const GridContent = styled.div`
@@ -145,6 +151,9 @@ const Text = styled.div`
   font-size: ${(p) => (p.large ? "2.1rem" : "1.8rem")};
   padding-left: ${(p) => (p.product ? "1.5rem" : "0")};
   font-weight: ${(p) => (p.bold ? "800" : "0")};
+  @media (max-width: 700px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const SubTotalContainer = styled(Container)`
@@ -153,6 +162,10 @@ const SubTotalContainer = styled(Container)`
   padding: 2rem;
   align-self: flex-end;
   display: flex;
+  @media (max-width: 700px) {
+    width: 95%;
+    justify-self: center;
+  }
 `;
 const ButtonContainer = styled.div`
   display: flex;

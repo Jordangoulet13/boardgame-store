@@ -112,6 +112,11 @@ const Container = styled.div`
       line-height: 2.5rem;
     }
   }
+
+  @media (max-width: 770px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: flex-start;
+  }
 `;
 
 const Title = styled.h1`
@@ -134,6 +139,10 @@ const Banner = styled.div`
     font-size: 1.3rem;
     font-family: ${(p) => p.theme.tertiaryfontFamily};
     color: grey;
+  }
+
+  @media (max-width: 770px) {
+    border: none;
   }
 `;
 

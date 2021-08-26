@@ -36,7 +36,9 @@ const Title = styled.div`
   align-items: flex-end;
   border-bottom: 1px solid lightgrey;
   text-align: center;
-
+  @media (max-width: 900px) {
+    height: 20rem;
+  }
   h1 {
     font-size: 4rem;
     margin: 0;

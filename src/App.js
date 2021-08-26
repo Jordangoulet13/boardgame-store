@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
 }
 html{
  font-size: 62.5%;
+ overflow-x: hidden;
  @media (max-width: 770px) {
 font-size: 50%;
   }

@@ -53,6 +53,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${(p) => p.theme.buttonPrimary};
+  @media (max-width: 770px) {
+    width: 100%;
+  }
   span {
     font-family: ${(p) => p.theme.secondaryfontFamily};
     font-weight: 300;

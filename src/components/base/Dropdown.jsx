@@ -50,17 +50,23 @@ const Dropdown = ({ options, label }) => {
     }
   };
 
-  const RenderedOptions = () =>
-    options.map((option) => {
-      return (
-        <OptionContainer onClick={() => handleClick(option)} key={option.label}>
-          <ArrowContainer>
-            <FontAwesomeIcon icon={faChevronRight} size="lg" />
-          </ArrowContainer>
-          <StyledLabel>{option.label}</StyledLabel>
-        </OptionContainer>
-      );
-    });
+  const RenderedOptions = () => (
+    <RenderedOptionsContainer>
+      {options.map((option) => {
+        return (
+          <OptionContainer
+            onClick={() => handleClick(option)}
+            key={option.label}
+          >
+            <ArrowContainer>
+              <FontAwesomeIcon icon={faChevronRight} size="lg" />
+            </ArrowContainer>
+            <StyledLabel>{option.label}</StyledLabel>
+          </OptionContainer>
+        );
+      })}
+    </RenderedOptionsContainer>
+  );
 
   return (
     <Container>
@@ -84,6 +90,12 @@ export default Dropdown;
 const Container = styled.div`
   height: 100%;
   border-bottom: 1px solid lightgrey;
+  @media (max-width: 900px) {
+    border: none;
+    height: 10rem;
+    z-index: 999;
+    position: absolute;
+  }
 `;
 const ArrowContainer = styled.div`
   padding: 0 1.5rem;
@@ -101,11 +113,14 @@ const ContentContainer = styled.div`
   align-items: center;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid lightgrey;
-  ${ArrowContainer} {
-  }
+
   &:hover {
     color: black;
     cursor: pointer;
+  }
+  @media (max-width: 900px) {
+    padding: 0;
+    border: none;
   }
 `;
 const StyledLabel = styled.label`
@@ -130,4 +145,8 @@ const OptionContainer = styled.div`
     color: black;
     cursor: pointer;
   }
+`;
+
+const RenderedOptionsContainer = styled.div`
+  background-color: whitesmoke;
 `;

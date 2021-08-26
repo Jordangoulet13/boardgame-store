@@ -1,14 +1,11 @@
 import { useState } from "react";
 import Button from "./base/Button";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { withRouter } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { filterBySearch } from "../redux/features/itemSlice";
 
 const SearchBar = ({ header, history }) => {
   const [searchText, setSearchText] = useState("");
-  const dispatch = useDispatch();
 
   const onInputChange = (event) => {
     setSearchText(event.target.value);
@@ -30,7 +27,7 @@ const SearchBar = ({ header, history }) => {
           onChange={onInputChange}
           placeholder={header ? smallPlaceholder : placeholder}
         />
-        <Button icon={faSearch} onClick={handleSubmitSearch} />
+        <StyledSearchButton icon={faSearch} onClick={handleSubmitSearch} />
       </Container>{" "}
     </form>
   );
@@ -46,6 +43,9 @@ const StyledInput = styled.input`
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   padding: 0.375rem 0.75rem;
+  @media (max-width: 770px) {
+    font-size: 1.5rem;
+  }
 
   &:focus {
     outline: none;
@@ -58,4 +58,8 @@ const Container = styled.div`
   display: flex;
   margin-bottom: 5rem;
   height: 8rem;
+`;
+
+const StyledSearchButton = styled(Button)`
+  width: 8rem;
 `;

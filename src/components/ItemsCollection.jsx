@@ -25,5 +25,11 @@ const Container = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 350px;
   width: 75%;
-  margin: 0 3rem; ;
+  margin: 0 3rem;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    margin: 0;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
 `;

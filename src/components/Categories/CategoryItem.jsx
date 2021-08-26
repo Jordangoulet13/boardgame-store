@@ -23,6 +23,11 @@ const Container = styled.div`
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  height: 20rem;
+  @media (max-width: 770px) {
+    margin: 2rem 0;
+    height: 30rem;
+  }
 
   img {
     width: 100%;

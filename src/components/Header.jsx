@@ -30,7 +30,7 @@ const Header = (props) => {
       { passive: true }
     );
     return () => setScroll(false);
-  }, []);
+  });
 
   const handleSearchClick = () => {
     setSearchbarHidden(!searchbarHidden);
@@ -63,11 +63,8 @@ export default Header;
 
 const Container = styled.div`
   position: absolute;
-  top: 5rem;
-  left: 5rem;
   z-index: 999;
   display: flex;
-
   height: 8rem;
   background-color: ${(p) => (p.search ? "none" : p.theme.buttonPrimary)};
   box-shadow: ${(p) =>
@@ -86,6 +83,11 @@ const Container = styled.div`
       : css`
           top: 5rem;
           left: 5rem;
+          @media (max-width: 770px) {
+            top: 0rem;
+            left: 0;
+            width: 100%;
+          }
         `}
   ${(p) =>
     p.search
@@ -93,15 +95,13 @@ const Container = styled.div`
           top: 8rem;
           left: 0;
           background-color: "";
+          @media (max-width: 770px) {
+            top: 8rem;
+            left: 0;
+            width: 100%;
+          }
         `
       : ""}
-      @media (max-width: 770px) {
-    top: 0;
-    left: 0;
-    width: 100vw;
-    position: fixed;
-    flex-flow: row-reverse;
-  }
 `;
 
 const Logo = styled.div`

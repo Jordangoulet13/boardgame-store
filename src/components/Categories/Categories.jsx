@@ -70,21 +70,26 @@ const Container = styled.div`
 `;
 
 const CategoriesContainer = styled.div`
-  > div {
-    margin-bottom: 3rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    column-gap: 3rem;
-    grid-template-rows: 20rem;
+  @media (min-width: 770px) {
+    grid-template-columns: 1fr;
+
+    > div {
+      margin-bottom: 3rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      column-gap: 3rem;
+      grid-template-rows: 20rem;
+
+      & :nth-child(2n) {
+        grid-template-columns: 1fr 2fr;
+      }
+    }
     & :nth-child(2n) {
       grid-template-columns: 1fr 2fr;
     }
-  }
-  & :nth-child(2n) {
-    grid-template-columns: 1fr 2fr;
-  }
 
-  & :last-child {
-    grid-template-columns: 1fr 1fr 1fr;
+    & :last-child {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 `;

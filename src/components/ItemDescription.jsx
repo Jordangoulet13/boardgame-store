@@ -91,13 +91,16 @@ const ItemDescription = ({ item }) => {
 export default ItemDescription;
 
 const Container = styled.div`
-  height: 120vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
   padding-top: 200px;
   background-color: #fff;
   margin-bottom: 2rem;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    padding-top: 10rem;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -146,11 +149,17 @@ const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @media (max-width: 900px) {
+    margin: 5rem;
+  }
 `;
 
 const DetailsHeader = styled.h1`
   margin: 0;
   font-size: 4rem;
+  @media (max-width: 900px) {
+    margin: 0 5px;
+  }
 `;
 
 const DetailsDescription = styled.p`
@@ -159,6 +168,9 @@ const DetailsDescription = styled.p`
   font-size: 1.5rem;
   color: grey;
   font-family: ${(p) => p.theme.tertiaryfontFamily};
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 const DetailsPrice = styled.p`
@@ -187,6 +199,9 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 60%;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 const StyledButton = styled(Button)`

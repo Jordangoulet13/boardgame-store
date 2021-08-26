@@ -56,4 +56,7 @@ const ContainerGrid = styled.div`
   grid-template-rows: 48rem;
   grid-gap: 3rem;
   margin-bottom: 5rem;
+  @media (max-width: 950px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 `;

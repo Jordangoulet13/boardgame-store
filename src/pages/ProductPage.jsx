@@ -82,7 +82,7 @@ export default withRouter(ProductPage);
 const Title = styled.div`
   margin: 2rem 7rem;
 
-  height: 40vh;
+  height: 25rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -92,11 +92,20 @@ const Title = styled.div`
   h1 {
     font-size: 4rem;
     margin: 0;
+    @media (max-width: 900px) {
+      font-size: 3rem;
+    }
   }
   span {
     margin: 1rem;
   }
+  @media (max-width: 900px) {
+    height: 20rem;
+  }
 `;
 const SubContainer = styled.div`
   display: flex;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;

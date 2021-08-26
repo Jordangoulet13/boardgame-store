@@ -61,6 +61,10 @@ const Container = styled.div`
   grid-template-rows: 35rem 35rem;
   grid-gap: 3rem;
   margin-bottom: 5rem;
+  @media (max-width: 950px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-rows: 35rem 40rem 40rem 35rem;
+  }
 
   img {
     display: block;
@@ -89,6 +93,9 @@ const Info = styled.div`
   p {
     font-size: 1.7rem;
     font-family: ${(p) => p.theme.tertiaryfontFamily};
+    @media (max-width: 770px) {
+      font-size: 2.4rem;
+    }
   }
 `;
 
@@ -97,6 +104,9 @@ const StyledButton = styled(Button)`
   left: 0px;
   bottom: 0px;
   width: 22rem;
+  @media (max-width: 770px) {
+    width: 100%;
+  }
 `;
 
 const CategoriesContainer = styled.div`
@@ -105,4 +115,9 @@ const CategoriesContainer = styled.div`
   grid-template-rows: 20rem;
   grid-gap: 3rem;
   margin: 5rem 0;
+  @media (max-width: 950px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-gap: 0;
+  }
 `;
