@@ -143,6 +143,10 @@ const Banner = styled.div`
     color: grey;
   }
 
+  span {
+    text-align: center;
+  }
+
   @media (max-width: 770px) {
     border: none;
   }
@@ -182,6 +186,9 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   cursor: pointer;
   &:hover {
     color: ${({ icon }) => getBackgroundHoverColor(icon)};
+  }
+  @media (max-width: 770px) {
+    font-size: 1.8rem;
   }
 `;
 
