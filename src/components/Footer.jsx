@@ -101,6 +101,7 @@ const Container = styled.div`
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+
   justify-items: center;
   margin-top: 3rem;
 
@@ -115,6 +116,7 @@ const Container = styled.div`
 
   @media (max-width: 770px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 25rem 25rem;
     justify-items: flex-start;
   }
 `;

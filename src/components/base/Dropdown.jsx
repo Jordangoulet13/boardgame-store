@@ -93,7 +93,7 @@ const Container = styled.div`
   @media (max-width: 900px) {
     border: none;
     height: 10rem;
-    z-index: 999;
+    z-index: 1;
     position: absolute;
   }
 `;
