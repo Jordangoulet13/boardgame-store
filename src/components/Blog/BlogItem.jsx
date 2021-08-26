@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
 const BlogItem = ({ image, title, text, ...props }) => {
+  const handleWidgetClick = () => {
+    alert("More Options Coming Soon :) ");
+  };
   return (
     <Container>
       <img src={image} alt="" />
       <span>{title}</span>
       <p>{text}</p>
-      <ReadMoreButton>Read more</ReadMoreButton>
+      <ReadMoreButton onClick={() => handleWidgetClick()}>
+        Read more
+      </ReadMoreButton>
     </Container>
   );
 };

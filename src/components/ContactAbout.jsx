@@ -8,6 +8,9 @@ import giftCards from "../assets/Categories/giftcards.png";
 import shipping from "../assets/Categories/shipping.png";
 
 const ContactAbout = (props) => {
+  const handleWidgetClick = () => {
+    alert("More Options Coming Soon :) ");
+  };
   return (
     <>
       <Container>
@@ -24,7 +27,9 @@ const ContactAbout = (props) => {
             try to track it down for you!
           </p>
 
-          <StyledButton secondary>CONTACT US</StyledButton>
+          <StyledButton secondary onClick={() => handleWidgetClick()}>
+            CONTACT US
+          </StyledButton>
         </Info>
         <Info>
           <h1>Inspiring joy through human connection</h1>
@@ -40,7 +45,9 @@ const ContactAbout = (props) => {
             community.
           </p>
 
-          <StyledButton secondary>ABOUT US</StyledButton>
+          <StyledButton secondary onClick={() => handleWidgetClick()}>
+            ABOUT US
+          </StyledButton>
         </Info>
         <img src={storeImg} alt="" />
       </Container>

@@ -35,13 +35,17 @@ const Header = (props) => {
     setSearchbarHidden(!searchbarHidden);
   };
 
+  const handleWidgetClick = () => {
+    alert("More Options Coming Soon :) ");
+  };
+
   return (
     <>
       <Container scrolled={scroll}>
         <StyledLink to="/">
           <Logo />
         </StyledLink>
-        <Button icon={faBars} />
+        <Button icon={faBars} onClick={() => handleWidgetClick()} />
         <Link to={`/Checkout`}>
           <Button icon={faShoppingBasket}>
             <CountContainer>{cartCount > 0 ? cartCount : null}</CountContainer>

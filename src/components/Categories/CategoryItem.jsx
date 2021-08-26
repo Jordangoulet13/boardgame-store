@@ -1,17 +1,22 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-const CategoryItem = ({ image, title, sale, ...props }) => {
+const CategoryItem = ({ image, title, sale, noBanner, ...props }) => {
+  const handleWidgetClick = () => {
+    alert("More Options Coming Soon :) ");
+  };
   return (
     <Container>
       {sale ? (
         <Link to="/shop/Sale">
           <img src={image} alt="" />
         </Link>
-      ) : (
+      ) : title ? (
         <Link to={`/shop/${title}`}>
           <img src={image} alt="" />
           {title ? <h1>{title}</h1> : null}
         </Link>
+      ) : (
+        <img src={image} alt="" onClick={() => handleWidgetClick()} />
       )}
     </Container>
   );

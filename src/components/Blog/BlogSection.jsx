@@ -25,6 +25,9 @@ const Content = {
 
 const BlogSection = () => {
   const { teaching, party, social } = Content;
+  const handleWidgetClick = () => {
+    alert("More Options Coming Soon :) ");
+  };
   return (
     <Container>
       <ContainerGrid>
@@ -36,7 +39,9 @@ const BlogSection = () => {
         <BlogItem image={partyImage} title={party.title} text={party.text} />
         <BlogItem image={onionImage} title={social.title} text={social.text} />
       </ContainerGrid>
-      <Button categories>VISIT THE BLOG</Button>
+      <Button categories onClick={() => handleWidgetClick()}>
+        VISIT THE BLOG
+      </Button>
     </Container>
   );
 };
