@@ -51,7 +51,7 @@ const Container = styled.div`
     cursor: pointer;
   }
   @media (max-width: 700px) {
-    padding: 2rem 0;
+    padding: 2rem;
   }
 `;
 
