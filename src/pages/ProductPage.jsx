@@ -23,7 +23,6 @@ const ProductPage = ({ ...props }) => {
   let { category } = useParams();
 
   useEffect(() => {
-    console.log(category);
     let key = "boardgames";
     key = category.toLowerCase().replace(/\s/g, "");
     if (category.includes("Search")) {
@@ -48,7 +47,6 @@ const ProductPage = ({ ...props }) => {
           dispatch(filterBySale());
           break;
         case "Search":
-          console.log(key);
           dispatch(filterBySearch({ search: key }));
           break;
         default:

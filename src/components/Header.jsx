@@ -21,7 +21,6 @@ const Header = (props) => {
   library.add(faBars, faShoppingBasket, faSearch, faMapMarkerAlt);
 
   useEffect(() => {
-    console.log(searchbarHidden);
     window.addEventListener(
       "scroll",
       () => {
@@ -34,7 +33,6 @@ const Header = (props) => {
 
   const handleSearchClick = () => {
     setSearchbarHidden(!searchbarHidden);
-    console.log(searchbarHidden);
   };
 
   return (

@@ -12,8 +12,6 @@ const SearchBar = ({ header, history }) => {
   };
 
   const handleSubmitSearch = (event) => {
-    console.log("clicked");
-
     history.push(`/shop/Search : ${searchText}`);
   };
 

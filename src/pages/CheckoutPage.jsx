@@ -21,8 +21,6 @@ const CheckoutPage = () => {
   const totalTax = (totalPrice * 0.05).toFixed(2);
   const totalWithTax = +totalPrice + +totalTax;
 
-  console.log(cartItems);
-  console.log(totalPoints);
   const dispatch = useDispatch();
   const handleDecrement = (item) => {
     dispatch(removeCartItem({ itemToRemove: item }));
@@ -91,7 +89,7 @@ const CheckoutPage = () => {
         </TotalContainer>
         <TotalContainer>
           <Text large>Total incl. tax:</Text>
-          <Text large>{totalWithTax}</Text>
+          <Text large>${totalWithTax}</Text>
           <Text>Points earned:</Text>
           <Text>{totalPoints}</Text>
         </TotalContainer>

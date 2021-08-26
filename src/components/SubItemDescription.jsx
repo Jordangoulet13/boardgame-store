@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const SubItemDescription = ({ largeDescription }) => {
-  console.log(largeDescription);
   return (
     <Container>
       <Heading>Product Description</Heading>
