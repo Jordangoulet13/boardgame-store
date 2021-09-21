@@ -12,6 +12,7 @@ import DefaultPageContainer from "../components/base/DefaultPageContainer";
 import Container from "../components/base/Container";
 import Counter from "../components/base/Counter";
 import Button from "../components/base/Button";
+import StripeCheckoutButton from "../components/base/StripeButton";
 
 const CheckoutPage = () => {
   const cartItems = useSelector(selectCartItems);
@@ -19,7 +20,7 @@ const CheckoutPage = () => {
   const totalPoints = useSelector(selectCartPointsTotal);
   const totalPrice = totalPriceFull.toFixed(2);
   const totalTax = (totalPrice * 0.05).toFixed(2);
-  const totalWithTax = +totalPrice + +totalTax;
+  const totalWithTax = (+totalPrice + +totalTax).toFixed(2);
 
   const dispatch = useDispatch();
   const handleDecrement = (item) => {
@@ -93,7 +94,7 @@ const CheckoutPage = () => {
           <Text>Points earned:</Text>
           <Text>{totalPoints}</Text>
         </TotalContainer>
-        <CheckoutButton>CheckOut</CheckoutButton>
+        <StripeCheckoutButton price={totalWithTax} />
       </SubTotalContainer>
     </DefaultPageContainer>
   );
