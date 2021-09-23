@@ -97,6 +97,9 @@ const Container = styled.div`
   padding-top: 200px;
   background-color: #fff;
   margin-bottom: 2rem;
+  height: 105vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
   @media (max-width: 900px) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     padding-top: 10rem;

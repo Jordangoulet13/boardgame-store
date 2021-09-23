@@ -27,7 +27,7 @@ const ProductPage = ({ ...props }) => {
     key = category.toLowerCase().replace(/\s/g, "");
     if (category.includes("Search")) {
       key = category.substring(9);
-
+      console.log(key);
       category = "Search";
     }
     if (category) {
