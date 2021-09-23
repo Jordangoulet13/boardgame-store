@@ -191,12 +191,3 @@ const TotalContainer = styled.div`
   border-bottom: ${(p) => (p.border ? "1px solid grey" : "none")};
   margin-top: 2rem;
 `;
-
-const CheckoutButton = styled(Button)`
-  align-self: flex-end;
-  font-size: 1.5rem;
-  width: 15rem;
-  height: 20rem;
-  color: #fff;
-  font-weight: 900;
-`;

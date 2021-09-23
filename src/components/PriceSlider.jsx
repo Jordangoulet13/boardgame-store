@@ -12,10 +12,14 @@ function valuetext(value) {
 const PriceSlider = () => {
   const dispatch = useDispatch();
   const [values, setValue] = useState([0, 300]);
-
+  const [initial, setInitial] = useState(true);
   useEffect(() => {
-    dispatch(filterByPriceRange({ start: values[0], end: values[1] }));
-  }, [values, dispatch]);
+    if (initial) {
+      setInitial(false);
+    } else {
+      dispatch(filterByPriceRange({ start: values[0], end: values[1] }));
+    }
+  }, [initial, values, dispatch]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
