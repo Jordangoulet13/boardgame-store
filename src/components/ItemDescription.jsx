@@ -97,7 +97,6 @@ const Container = styled.div`
   padding-top: 200px;
   background-color: #fff;
   margin-bottom: 2rem;
-  height: 105vh;
   padding-left: 1rem;
   padding-right: 1rem;
   @media (max-width: 900px) {
@@ -123,15 +122,21 @@ const StyledImage = styled.div`
 `;
 
 const ImagePreviewContainer = styled.div`
-  width: 55%;
-  height: 10rem;
+  width: 50%;
+  height: 14rem;
   display: flex;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const ImagePreview = styled.img`
-  height: 100%;
-  width: 10rem;
-  margin-top: 2rem;
+  height: 12rem;
+  width: 12rem;
+  margin-top: 1rem;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 const Available = styled.div`
   display: flex;
