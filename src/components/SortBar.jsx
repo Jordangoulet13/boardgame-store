@@ -62,6 +62,7 @@ const ContainerBar = styled.div`
   width: 25%;
   height: 100%;
   padding-left: 3rem;
+  z-index: 1;
   @media (max-width: 900px) {
     flex-direction: row;
     justify-content: space-between;
