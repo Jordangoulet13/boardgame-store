@@ -157,12 +157,10 @@ const Text = styled.div`
 
 const SubTotalContainer = styled(Container)`
   width: 50rem;
-  height: 43rem;
   padding: 2rem;
   align-self: flex-end;
   display: flex;
   @media (max-width: 700px) {
-    width: 95%;
     justify-self: center;
   }
 `;

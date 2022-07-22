@@ -30,7 +30,7 @@ export default withRouter(DefaultPageContainer);
 const Title = styled.div`
   margin: 2rem 7rem;
 
-  height: 40vh;
+  height: 20rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
